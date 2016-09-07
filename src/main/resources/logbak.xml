@@ -28,7 +28,7 @@
 			<pattern>
 				[ %-5level] [%date{yyyy-MM-dd HH:mm:ss}] %logger{96} [%line] - %msg%n
 			</pattern>
-			<charset>GBK</charset> <!-- 此处设置字符集 -->
+			<charset>UTF-8</charset>
 		</encoder>
 	</appender>
 
@@ -39,7 +39,6 @@
 	</root>
 
 	<!-- 在这些命名空间记录器，记录各级. -->
-	<logger name="com.lance.mybatis" level="OFF" />
 	<logger name="org.hibernate" level="OFF" />
 	<logger name="org.apache" level="OFF" />
 	<logger name="org.springframework" level="OFF" />
