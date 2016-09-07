@@ -103,4 +103,19 @@ spring.datasource.poolPreparedStatements=true
 spring.datasource.maxPoolPreparedStatementPerConnectionSize=20
 spring.datasource.filters=stat
 spring.datasource.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+
+# thymeleaf
+#thymeleaf模板缓存，测试设置false方便实时修改更新，不用重启main
+spring.thymeleaf.cache=false
+spring.thymeleaf.check-template-location=true
+spring.thymeleaf.content-type=text/html
+spring.thymeleaf.enabled=true
+spring.thymeleaf.encoding=UTF-8
+# spring.thymeleaf.excluded-view-names= # Comma-separated list of view names that should be excluded from resolution.
+spring.thymeleaf.mode=HTML5
+spring.thymeleaf.prefix=classpath:templates/
+spring.thymeleaf.suffix=.html
+#spring.thymeleaf.template-resolver-order= # Order of the template resolver in the chain. 
+#spring.thymeleaf.view-names= # Comma-separated list of view names that can be resolved.
 ```
