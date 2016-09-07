@@ -1,5 +1,5 @@
 # spring-boot-mybatis
-spring-boot整合mybatis
+spring-boot整合mybatis             
 
 ```
 
@@ -11,8 +11,8 @@ spring-boot整合mybatis
 
 ```
 
-使用druid数据源
-使用logbak.xml控制日志的输出
+使用druid数据源                           
+使用logbak.xml控制日志的输出                         
 
 
 ```
