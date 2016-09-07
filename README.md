@@ -2,21 +2,36 @@
 spring-boot整合mybatis             
 
 ```
-
 <dependency>
     <groupId>org.mybatis.spring.boot</groupId>
     <artifactId>mybatis-spring-boot-starter</artifactId>
     <version>1.1.1</version>
 </dependency>
-
 ```
 
-使用druid数据源                           
-使用logbak.xml控制日志的输出                         
+
+使用logbak.xml控制日志的输出                   
+
+
+使用thymeleaf模板引擎渲染页面                   
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+```        
+             
+使用druid数据源                          
+```
+<dependency>
+	<groupId>com.alibaba</groupId>
+	<artifactId>druid</artifactId>
+	<version>1.0.20</version>
+</dependency>
+```                                          
 
 
 ```
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -41,13 +56,11 @@ public interface UserMapper {
 	 */
 	List<UserInfo> findAll();
 }
-
 ```
 
 
 ### application.properties
 ```
-
 # IDENTITY (ContextIdApplicationContextInitializer)
 spring.application.name=MyBatis Boot
 spring.application.index=1
@@ -90,5 +103,4 @@ spring.datasource.poolPreparedStatements=true
 spring.datasource.maxPoolPreparedStatementPerConnectionSize=20
 spring.datasource.filters=stat
 spring.datasource.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-
 ```
