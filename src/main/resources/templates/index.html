@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">  
-    <meta charset="UTF-8" />
-    <title>首页</title>
-    <link rel="stylesheet" type="text/css" href="home.css" />
-</head>  
-<body>  
-<h1 th:text="${host1}">Hello World</h1>
-<h4 th:text="${host2}">Hello World</h4>
-<h1 th:text="${host3}">Hello World</h1>
-</body>  
-</html>  
+<head lang="en">
+<meta charset="UTF-8" />
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="css/home.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+	$(function(){
+		alert("测试是否引入jquery");
+	});
+</script>
+</head>
+<body>
+	<img role="测试图片" src="img/YOU8607FYOD7.jpg" />
+	<h1 th:text="${host1}"></h1>
+	<h5 th:text="${host2}"></h5>
+</body>
+</html>

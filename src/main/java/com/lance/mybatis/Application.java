@@ -21,12 +21,12 @@ import com.alibaba.druid.pool.DruidDataSource;
 @Configuration
 @EnableTransactionManagement
 @MapperScan("com.lance.mybatis.mapper")
-public class SimpleApplication {
+public class Application {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(SimpleApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(SimpleApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 	
 	@Bean

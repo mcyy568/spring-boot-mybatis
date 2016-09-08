@@ -3,14 +3,20 @@ package com.lance.mybatis.web;
 import java.util.Date;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.lance.mybatis.Application;
 import com.lance.mybatis.domain.UserInfo;
 import com.lance.mybatis.utils.HttpNetClient;
 
 
-@SuppressWarnings("static-access")
+@SuppressWarnings({ "static-access", "deprecation" })
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(Application.class)
 public class TestUserController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(TestUserController.class);
