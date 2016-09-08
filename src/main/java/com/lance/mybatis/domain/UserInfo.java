@@ -1,11 +1,14 @@
 package com.lance.mybatis.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-public class UserInfo{
-	
+public class UserInfo implements Serializable {
+
+    private static final long serialVersionUID = -1L;
+    
 	private Integer id;
 	
 	private String name;
