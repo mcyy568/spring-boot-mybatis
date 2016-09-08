@@ -3,7 +3,6 @@
 ## spring-boot整合mybatis             
 
 ```
-
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter</artifactId>
@@ -21,20 +20,17 @@
 		<artifactId>spring-boot-configuration-processor</artifactId>
 		<optional>true</optional>
 	</dependency>
-	
 	<!-- 模板引擎 -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-thymeleaf</artifactId>
 	</dependency>
-	
 	<!-- Test -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-test</artifactId>
 		<scope>test</scope>
 	</dependency>
-	
 	<!-- Mybatis -->
 	<dependency>
 		<groupId>org.mybatis.spring.boot</groupId>
@@ -56,14 +52,12 @@
 		<artifactId>druid</artifactId>
 		<version>1.0.20</version>
 	</dependency>
-	
 	<!-- json -->
 	<dependency>
 		<groupId>com.alibaba</groupId>
 		<artifactId>fastjson</artifactId>
 		<version>1.2.12</version>
 	</dependency>
-	
 	<!-- http -->
 	<dependency>
 		<groupId>org.apache.httpcomponents</groupId>
@@ -73,11 +67,10 @@
 
 ## Spring Boot属性配置文件详解
 ```
-
-	application.properties: 主配置文件 项目启动时会自动加载
-	application-dev.properties：开发环境
-	application-test.properties：测试环境
-	application-prod.properties：生产环境
+	application.properties:        主配置文件 项目启动时会自动加载
+	application-dev.properties：         开发环境
+	application-test.properties：       测试环境
+	application-prod.properties：       生产环境
 
 ```
 
@@ -85,7 +78,6 @@
 ## 使用logbak.xml控制日志的输出                   
 
 ```
-
 	logging.config=classpath:logbak.xml
 ```
 
@@ -93,33 +85,28 @@
 ## Spring Boot构建RESTful API与单元测试
 
 ```
-
 	GET 		/users 		查询用户列表
-	POST 	/users 		创建一个用户
+	POST 	    /users 		创建一个用户
 	GET 		/users/id 	根据id查询一个用户
 	PUT 		/users/id 	根据id更新一个用户
-	DELETE 	/users/id 	根据id删除一个用户
-	
+	DELETE 	    /users/id 	根据id删除一个用户
 	详见：TestUserController.java	测试类
 ```
 
 ## 使用Thymeleaf模板引擎渲染web视图
 
-	模板详细介绍参照: `http://www.thymeleaf.org/`
-	使用示例详见:	HomeController.java
+	模板详细介绍参照:    http://www.thymeleaf.org/
+	使用示例详见:       HomeController.java
 ```
-
 	Spring Boot提供了默认配置的模板引擎主要有以下几种：
 	Thymeleaf
 	FreeMarker
 	Velocity
 	Groovy
 	Mustache
-	
 	这里使用Thymeleaf模板引擎；
 ```
 ```
-
 	<!-- 模板引擎 -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
@@ -130,7 +117,6 @@
 ### Spring Boot中使用Redis数据库   
 
 ```
-
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-redis</artifactId>
@@ -138,7 +124,6 @@
 ```
 	Redis相关配置，具体说明如下：            
 ```
-
 	# REDIS (RedisProperties)
 	# Redis数据库索引（默认为0）
 	spring.redis.database=0  
@@ -163,7 +148,6 @@
 实战中我们还经常会在Redis中存储对象                    
 需要我们自己实现RedisSerializer<T>接口来对传入对象进行序列化和反序列化                  
 ```
-
 	RedisConfig.java			redis序列化配置
 	RedisController.java		redis测试Controller
 ```
@@ -172,7 +156,6 @@
 ## Spring Boot中使用MongoDB数据库
 
 ```
-
 	<!-- mongodb -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
@@ -182,7 +165,6 @@
 
 mongodb相关配置，具体说明如下：  
 ```
-
 	#mongodb mongo中对test库创建具备读写权限的用户（用户名为name，密码为pass）
 	# spring.data.mongodb.uri=mongodb://name:pass@localhost:27017/test
 	# 若使用mongodb 2.x，也可以通过如下参数配置，该方式不支持mongodb 3.x。
@@ -192,8 +174,7 @@ mongodb相关配置，具体说明如下：
 
       
 ```
-
-	UserInfoRepository.java	mongodbService配置
-	MongodbController.java		mongodb测试Controller
+	UserInfoRepository.java	    mongodbService配置
+	MongodbController.java      mongodb测试Controller
 ```
       
