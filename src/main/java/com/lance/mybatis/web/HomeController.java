@@ -10,9 +10,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.alibaba.fastjson.JSON;
+import com.lance.mybatis.conf.ItemProperties;
 import com.lance.mybatis.domain.UserInfo;
+import com.lance.mybatis.mongoRepository.UserInfoRepository;
 import com.lance.mybatis.service.UserService;
-import com.lance.mybatis.utils.ItemProperties;
 
 @Controller
 public class HomeController {
@@ -31,6 +32,10 @@ public class HomeController {
     
 	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
+	
+	@Autowired
+	private UserInfoRepository userInfoRepository;
+
 
 
 	/**
@@ -78,5 +83,40 @@ public class HomeController {
         
         return "redis/redis";  
 	}
+	
+	
+	/**
+	 * 测试mongodb
+	 * 
+	 * @param map
+	 * @return
+	 */
+	@GetMapping("/mongodb")
+	public String mongodb(ModelMap map) {
+		
+		// 创建三个UserInfo，并验证User总数
+		userInfoRepository.save(new UserInfo(1, "di", "33"));
+		userInfoRepository.save(new UserInfo(2, "yang", "23"));
+		userInfoRepository.save(new UserInfo(3, "li", "15"));
+        LOGGER.info("mongodb: {}", userInfoRepository.findAll().size());
+
+		// 删除一个UserInfo，再验证User总数
+        UserInfo u = userInfoRepository.findOne(1L);
+        userInfoRepository.delete(u);
+        LOGGER.info("mongodb: {}", userInfoRepository.findAll().size());
+
+		// 删除一个UserInfo，再验证User总数
+		u = userInfoRepository.findByName("yang");
+		userInfoRepository.delete(u);
+        LOGGER.info("mongodb: {}", userInfoRepository.findAll().size());
+        
+		// 删除一个UserInfo，再验证User总数
+		u = userInfoRepository.findByTel("15");
+		userInfoRepository.delete(u);
+        LOGGER.info("mongodb: {}", userInfoRepository.findAll().size());
+        
+        return "index";  
+	}
+
 
 }

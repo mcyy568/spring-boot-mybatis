@@ -1,4 +1,4 @@
-package com.lance.mybatis.utils;
+package com.lance.mybatis.conf;
 
 import java.io.UnsupportedEncodingException;
 

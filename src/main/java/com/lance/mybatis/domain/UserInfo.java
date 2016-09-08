@@ -50,5 +50,16 @@ public class UserInfo implements Serializable {
 		this.createTime = createTime;
 	}
 
+	public UserInfo(Integer id, String name, String tel) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.tel = tel;
+	}
+
+	public UserInfo() {
+		super();
+	}
+
  
 }
