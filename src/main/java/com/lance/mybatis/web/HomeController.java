@@ -23,20 +23,6 @@ public class HomeController {
 	
 	@Autowired
 	private ItemProperties itemProperties;
-	
-	@Autowired
-	private UserService userService;
-	
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
-    
-	@Autowired
-	private RedisTemplate<String, Object> redisTemplate;
-	
-	@Autowired
-	private UserInfoRepository userInfoRepository;
-
-
 
 	/**
 	 * 进入首页	http://localhost/
@@ -58,65 +44,9 @@ public class HomeController {
 	
 	
 
-	/**
-	 * 测试redis
-	 * 
-	 * @param map
-	 * @return
-	 */
-	@GetMapping("/redis")
-	public String redis(ModelMap map) {
-		// 保存字符串
-        stringRedisTemplate.opsForValue().set("test_Key", "菩提树下的椰子");
-        
-        //获取保存的字符串，返回到页面
-        String test_Key = stringRedisTemplate.opsForValue().get("test_Key");
-        map.addAttribute("test_Key", test_Key);
-        
-        // 保存UserInfo对象
-        UserInfo userInfo = userService.getUserById(1);
-        redisTemplate.opsForValue().set(userInfo.getId().toString(), userInfo);
-        
-        //获取保存的UserInfo，返回到页面
-        UserInfo user = (UserInfo) redisTemplate.opsForValue().get("1");
-        map.addAttribute("user", JSON.toJSONString(user));
-        
-        return "redis/redis";  
-	}
+
 	
 	
-	/**
-	 * 测试mongodb
-	 * 
-	 * @param map
-	 * @return
-	 */
-	@GetMapping("/mongodb")
-	public String mongodb(ModelMap map) {
-		
-		// 创建三个UserInfo，并验证User总数
-		userInfoRepository.save(new UserInfo(1, "di", "33"));
-		userInfoRepository.save(new UserInfo(2, "yang", "23"));
-		userInfoRepository.save(new UserInfo(3, "li", "15"));
-        LOGGER.info("mongodb: {}", userInfoRepository.findAll().size());
-
-		// 删除一个UserInfo，再验证User总数
-        UserInfo u = userInfoRepository.findOne(1L);
-        userInfoRepository.delete(u);
-        LOGGER.info("mongodb: {}", userInfoRepository.findAll().size());
-
-		// 删除一个UserInfo，再验证User总数
-		u = userInfoRepository.findByName("yang");
-		userInfoRepository.delete(u);
-        LOGGER.info("mongodb: {}", userInfoRepository.findAll().size());
-        
-		// 删除一个UserInfo，再验证User总数
-		u = userInfoRepository.findByTel("15");
-		userInfoRepository.delete(u);
-        LOGGER.info("mongodb: {}", userInfoRepository.findAll().size());
-        
-        return "index";  
-	}
 
 
 }

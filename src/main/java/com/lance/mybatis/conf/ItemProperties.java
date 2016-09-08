@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @author Administrator
  *
  */
-@Component("UTF-8")
+@Component
 public class ItemProperties {
 
     @Value("${com.lance.name}")
