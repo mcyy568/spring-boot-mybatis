@@ -67,10 +67,10 @@
 
 ## Spring Boot属性配置文件详解
 ```
-	application.properties:        主配置文件 项目启动时会自动加载
-	application-dev.properties：         开发环境
-	application-test.properties：       测试环境
-	application-prod.properties：       生产环境
+	application.properties:             主配置文件 项目启动时会自动加载
+	application-dev.properties:         开发环境
+	application-test.properties:        测试环境
+	application-prod.properties:        生产环境
 
 ```
 
