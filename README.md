@@ -71,7 +71,6 @@
 	application-dev.properties:         开发环境
 	application-test.properties:        测试环境
 	application-prod.properties:        生产环境
-
 ```
 
 
