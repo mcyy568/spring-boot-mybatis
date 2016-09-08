@@ -1,5 +1,6 @@
 package com.lance.mybatis.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,39 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserInfo findOne(int id) {
-		return userMapper.findOne(id);
+	public UserInfo getUserById(Integer id) {
+		return userMapper.getUserById(id);
+	}
+
+	@Override
+	public Integer saveUser(UserInfo userInfo) {
+		userInfo.setCreateTime(new Date());
+		try {
+			return userMapper.saveUser(userInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	@Override
+	public Integer deleteUserById(Integer id) {
+		try {
+			return userMapper.deleteUserById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	@Override
+	public Integer updateUserById(UserInfo userInfo) {
+		try {
+			return userMapper.updateUserById(userInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }

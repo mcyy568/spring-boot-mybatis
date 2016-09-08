@@ -39,6 +39,7 @@
 	</root>
 
 	<!-- 在这些命名空间记录器，记录各级. -->
+	<logger name="org.apache.http" level="OFF" />
 	<logger name="org.hibernate" level="OFF" />
 	<logger name="org.apache" level="OFF" />
 	<logger name="org.springframework" level="OFF" />
