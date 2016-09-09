@@ -3,17 +3,12 @@ package com.lance.mybatis.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.alibaba.fastjson.JSON;
 import com.lance.mybatis.conf.ItemProperties;
-import com.lance.mybatis.domain.UserInfo;
-import com.lance.mybatis.mongoRepository.UserInfoRepository;
-import com.lance.mybatis.service.UserService;
 
 @Controller
 public class HomeController {

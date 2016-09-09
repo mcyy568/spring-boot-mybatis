@@ -12,12 +12,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
 @SpringBootApplication
+@EnableScheduling		//	Spring Boot的主类中加入@EnableScheduling注解，启用定时任务的配置
 @Configuration
 @EnableTransactionManagement
 @MapperScan("com.lance.mybatis.mapper")

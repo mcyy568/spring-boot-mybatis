@@ -171,9 +171,24 @@ mongodb相关配置，具体说明如下：
 	spring.data.mongodb.port=27017
 ```
 
-      
 ```
 	UserInfoRepository.java	    mongodbService配置
 	MongodbController.java      mongodb测试Controller
 ```
+
+## Spring Boot创建定时任务
+在Spring Boot的主类中加入@EnableScheduling注解，启用定时任务的配置                                        
+创建定时任务实现类                      
+```
+	ScheduledTasks.java
+```
+
+在上面的入门例子中，使用了@Scheduled(fixedRate = 5000) 注解来定义每过5秒执行的任务，对于@Scheduled的使用可以总结如下几种方式:                 
+```
+	@Scheduled(fixedRate = 5000):上一次开始执行时间点之后5秒再执行
+	@Scheduled(fixedDelay = 5000):上一次执行完毕时间点之后5秒再执行
+	@Scheduled(initialDelay=1000, fixedRate=5000):第一次延迟1秒后执行，之后按fixedRate的规则每5秒执行一次
+	@Scheduled(cron="*/5 * * * * *"):通过cron表达式定义规则
+```
+
       
