@@ -7,7 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.lance.mybatis.domain.UserInfo;
-import com.lance.mybatis.mongoRepository.UserInfoRepository;
+import com.lance.mybatis.repository.mongo.UserInfoRepository;
 
 public class MongodbController {
 	

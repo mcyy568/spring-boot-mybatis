@@ -19,7 +19,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.lance.mybatis.conf.mongoLog.ItemLog;
-import com.lance.mybatis.mongoRepository.MangoLogRepository;
+import com.lance.mybatis.repository.mongo.MangoLogRepository;
 
 /**
  * 实现Web层的日志切面

@@ -1,4 +1,4 @@
-package com.lance.mybatis.conf.redis;
+package com.lance.mybatis.repository.redis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

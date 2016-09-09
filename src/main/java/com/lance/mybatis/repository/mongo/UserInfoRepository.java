@@ -1,4 +1,4 @@
-package com.lance.mybatis.mongoRepository;
+package com.lance.mybatis.repository.mongo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

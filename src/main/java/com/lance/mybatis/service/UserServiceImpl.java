@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.lance.mybatis.domain.UserInfo;
@@ -20,6 +23,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+    @Cacheable(value = "usercache",keyGenerator = "wiselyKeyGenerator")  
 	public UserInfo getUserById(Integer id) {
 		return userMapper.getUserById(id);
 	}
@@ -46,6 +50,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@CachePut(key = "#p0.id")
 	public Integer updateUserById(UserInfo userInfo) {
 		try {
 			return userMapper.updateUserById(userInfo);
