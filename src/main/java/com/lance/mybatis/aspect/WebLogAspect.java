@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.lance.mybatis.mongoLog.ItemLog;
+import com.lance.mybatis.conf.mongoLog.ItemLog;
 import com.lance.mybatis.mongoRepository.MangoLogRepository;
 
 /**

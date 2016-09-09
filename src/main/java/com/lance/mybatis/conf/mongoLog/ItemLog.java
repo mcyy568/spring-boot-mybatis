@@ -1,4 +1,4 @@
-package com.lance.mybatis.mongoLog;
+package com.lance.mybatis.conf.mongoLog;
 
 public class ItemLog {
 
