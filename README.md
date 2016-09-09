@@ -238,4 +238,8 @@ AOP的默认配置属性
 ```
 WebLogAspect.java：实现Web层的日志切面
 
+## logbak日志写入mangodb
+定义日志表实体ItemLog.java
+在AOP中往mangodb写入数据
+
       
