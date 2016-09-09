@@ -211,18 +211,31 @@ mongodb相关配置，具体说明如下：
 跳出循环之后，根据结束时间 - 开始时间，计算出三个任务并发执行的总耗时。                 
 执行一下上述的单元测试，可以看到如下结果：                          
 ```
-开始做任务一
-开始做任务二
-开始做任务三
-完成任务三，耗时：37毫秒
-完成任务二，耗时：3661毫秒
-完成任务一，耗时：7149毫秒
-任务全部完成，总耗时：8025毫秒
+	开始做任务一
+	开始做任务二
+	开始做任务三
+	完成任务三，耗时：37毫秒
+	完成任务二，耗时：3661毫秒
+	完成任务一，耗时：7149毫秒
+	任务全部完成，总耗时：8025毫秒
 ```
 
-
-
-
-
+## 使用AOP统一处理Web请求日志
+引入AOP依赖
+```
+	<dependency>  
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-aop</artifactId>
+	</dependency>
+```
+AOP的默认配置属性
+```
+	# AOP
+	# Add @EnableAspectJAutoProxy.
+	spring.aop.auto=true
+	# 而当我们需要使用CGLIB来实现AOP的时候， 需要配置spring.aop.proxy-target-class=true，不然默认使用的是标准Java的实现。
+	spring.aop.proxy-target-class=false
+```
+WebLogAspect.java：实现Web层的日志切面
 
       
