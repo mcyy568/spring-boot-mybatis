@@ -11,10 +11,15 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import com.lance.mybatis.mongoLog.ItemLog;
+import com.lance.mybatis.mongoRepository.MangoLogRepository;
 
 /**
  * 实现Web层的日志切面
@@ -55,13 +60,15 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class WebLogAspect {
 
+	@Autowired
+	private MangoLogRepository mangoLogRepository;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(WebLogAspect.class);
 
-	
 	ThreadLocal<Long> startTime = new ThreadLocal<>();
-
 	
+	ThreadLocal<ItemLog> itemLog = new ThreadLocal<>();
+
 	//使用@Pointcut定义一个切入点，可以是一个规则表达式，比如下例中某个package下的所有函数，也可以是一个注解等。
 	@Pointcut("execution(public * com.lance.mybatis.web..*.*(..))")
 	public void webLog() {
@@ -83,6 +90,12 @@ public class WebLogAspect {
 		LOGGER.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
 		LOGGER.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
 
+		itemLog.set(new ItemLog(
+				request.getRequestURL().toString(), 
+				request.getMethod(), 
+				request.getRemoteAddr(),
+				joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName(),
+				Arrays.toString(joinPoint.getArgs())));
 	}
 
 	
@@ -92,6 +105,11 @@ public class WebLogAspect {
 		// 处理完请求，返回内容
 		LOGGER.info("RESPONSE : " + ret);
 		LOGGER.info("SPEND TIME : " + (System.currentTimeMillis() - startTime.get()));
+
+		ItemLog log = itemLog.get();
+		log.setRESPONSE(ret.toString());
+		log.setSPEND_TIME((System.currentTimeMillis() - startTime.get()) + "");
+		mangoLogRepository.save(log);
 	}
 
 }
