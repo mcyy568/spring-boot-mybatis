@@ -12,17 +12,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
-@SpringBootApplication
+@SpringBootApplication	//	Spring Boot的启动注解
 @EnableScheduling		//	Spring Boot的主类中加入@EnableScheduling注解，启用定时任务的配置
-@Configuration
-@EnableTransactionManagement
-@MapperScan("com.lance.mybatis.mapper")
+@EnableAsync			//	Spring Boot的主类中加入@EnableAsync注解，使@Async注解能够生效
+@Configuration			//	Spring Boot配置注解
+@EnableTransactionManagement				//启用事务
+@MapperScan("com.lance.mybatis.mapper")		//Mybatis扫描mapper
 public class Application {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
