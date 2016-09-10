@@ -50,4 +50,26 @@ public class MongodbController {
         return "index";  
 	}
 
+	
+	//测试日志写入mongodb
+	@GetMapping("/test_1")
+	public String test_1(ModelMap map) {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return "index";
+	}
+
+	@GetMapping("/test_2")
+	public String test_2(ModelMap map) {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return "index";
+	}
+
 }

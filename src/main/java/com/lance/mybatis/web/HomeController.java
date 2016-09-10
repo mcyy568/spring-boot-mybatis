@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.alibaba.fastjson.JSON;
 import com.lance.mybatis.conf.ItemProperties;
+import com.lance.mybatis.exception.MyException;
 
 @Controller
 public class HomeController {
@@ -35,27 +36,31 @@ public class HomeController {
 		LOGGER.info("itemProperties: {}", JSON.toJSONString(itemProperties));
 		LOGGER.error("itemProperties: {}", JSON.toJSONString(itemProperties));
 		LOGGER.debug("itemProperties: {}", JSON.toJSONString(itemProperties));
+		
 		return "index";
 	}
 
-	@GetMapping("/test_1")
-	public String test_1(ModelMap map) {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return "index";
-	}
+	
+	/**
+	 * 异常测试HTML
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@GetMapping("/test_err_html")
+    public String hello() throws Exception {
+        throw new Exception("发生错误");
+    }
 
-	@GetMapping("/test_2")
-	public String test_2(ModelMap map) {
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return "index";
-	}
+	/**
+	 * 异常测试JSON
+	 * 
+	 * @return
+	 * @throws MyException
+	 */
+	@GetMapping("/test_err_json")
+    public String test_err_json() throws Exception {
+        throw new MyException("发生错误2");
+    }
 
 }

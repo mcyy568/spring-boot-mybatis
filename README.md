@@ -241,5 +241,12 @@ WebLogAspect.java：实现Web层的日志切面
 ## logbak日志写入mangodb
 定义日志表实体ItemLog.java
 在AOP中往mangodb写入数据
+MongodbController.java测试类
 
+## Spring Boot中Web应用的统一异常处理
+创建全局异常处理类：通过使用@ControllerAdvice定义统一的异常处理类，而不是在每个Controller中逐个定义。@ExceptionHandler用来定义函数针对的异常类型，最后将Exception对象和请求URL映射到error.html中                   
+实现error.html页面展示：在templates目录下创建error.html，将请求的URL和Exception对象的message输出。                         
+HomeController.java 异常测试类     
+      
+      
       
