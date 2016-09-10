@@ -1,8 +1,6 @@
-package com.lance.mybatis.repository.mongo;
+package com.lance.mybatis.conf.mongoLog;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-
-import com.lance.mybatis.conf.mongoLog.ItemLog;
 
 public interface MangoLogRepository extends MongoRepository<ItemLog, String> {
 

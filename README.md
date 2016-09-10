@@ -248,5 +248,7 @@ MongodbController.java测试类
 实现error.html页面展示：在templates目录下创建error.html，将请求的URL和Exception对象的message输出。                         
 HomeController.java 异常测试类     
       
-      
+## Spring Boot多数据源配置与使用
+详细：DataSourceConfig.java
+     
       

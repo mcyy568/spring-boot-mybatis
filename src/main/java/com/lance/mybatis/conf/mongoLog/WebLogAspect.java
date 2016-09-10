@@ -1,4 +1,4 @@
-package com.lance.mybatis.aspect;
+package com.lance.mybatis.conf.mongoLog;
 
 import java.util.Arrays;
 
@@ -17,9 +17,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import com.lance.mybatis.conf.mongoLog.ItemLog;
-import com.lance.mybatis.repository.mongo.MangoLogRepository;
 
 /**
  * 实现Web层的日志切面

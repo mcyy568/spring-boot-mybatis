@@ -1,20 +1,20 @@
-package com.lance.mybatis.service;
+package com.lance.mybatis.service.impl;
 
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.lance.mybatis.domain.UserInfo;
 import com.lance.mybatis.mapper.UserMapper;
+import com.lance.mybatis.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
-	@Autowired
+
+    @Autowired
 	private UserMapper userMapper;
 
 	@Override
@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-    @Cacheable(value = "usercache",keyGenerator = "wiselyKeyGenerator")  
 	public UserInfo getUserById(Integer id) {
 		return userMapper.getUserById(id);
 	}
@@ -50,7 +49,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	@CachePut(key = "#p0.id")
 	public Integer updateUserById(UserInfo userInfo) {
 		try {
 			return userMapper.updateUserById(userInfo);
